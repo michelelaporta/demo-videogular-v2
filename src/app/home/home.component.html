@@ -11,8 +11,13 @@
 
   </header>
   <main class="page-main">
+    <span style="color:red;" *ngIf="message">{{message}}</span>
+
+    <input #fileUpload id="fileInput" name="file" type="file" ([value])="fName" (change)="preview($event)">
+    
+
     <!-- content here -->
-    <vg-player (onPlayerReady)="onPlayerReady($event)">
+    <vg-player *ngIf="imgURL && imgURLReady" (onPlayerReady)="onPlayerReady($event)">
 
       <vg-buffering></vg-buffering>
       <vg-controls>
@@ -34,8 +39,11 @@
           <vg-fullscreen></vg-fullscreen>
       </vg-controls>
 
-      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls>
-          <source src="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4" type="video/mp4">
+      <video [vgMedia]="media" #media id="singleVideo" preload="auto" controls type="video/mp4"
+  webkit-playsinline
+  playsinline
+  autoplay>
+          <source [src]="imgURL" type="video/mp4" >
       </video>
   </vg-player>
   </main>

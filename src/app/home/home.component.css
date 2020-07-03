@@ -1,0 +1,45 @@
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+ 
+.wrapper > * {
+  padding: 20px;
+}
+ 
+.page-main {
+  flex-grow: 1;
+}
+
+:root {
+  --main-white-color: white;
+  --main-purple-color: #9e89b8;
+}
+ 
+.page-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 350px;
+  background: var(--main-purple-color) url(IMG_SRC) no-repeat center / cover;
+  background-blend-mode: luminosity;
+  color: var(--main-white-color);
+}
+ 
+.page-main div {
+  max-width: 500px;
+}
+ 
+@media screen and (min-width: 768px) {
+  .page-main {
+    padding-left: 90px;
+  }
+}
+
+video {
+  width: 100% !important;
+  height: auto !important;
+}
